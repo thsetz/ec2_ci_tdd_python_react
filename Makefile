@@ -9,7 +9,7 @@ start:
 	docker-compose up -d
 
 log:
-	docker-compose logs
+	docker-compose logs -f
 
 
 shell:
@@ -37,6 +37,14 @@ html:
 cov:
 	 docker-compose exec users python manage.py cov
 
+jstest:
+	cd services/client && npm test
+	cd services/client && react-scripts test --coverage
+
+djstest:
+	docker-compose exec client npm test
+	docker-compose exec client react-scripts test --coverage
+
 test:
 	docker-compose exec users python manage.py test
 
@@ -44,6 +52,7 @@ start_d:
 	docker-compose exec users python manage.py run
  
 d_host:
+	docker-machine rm testdriven-dev
 	docker-machine create  testdriven-dev
 
 p_host:
