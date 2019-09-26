@@ -15,6 +15,13 @@ log:
 shell:
 	 docker-compose exec users flask shell
 
+db_init:
+	docker-compose exec users python manage.py db init
+
+db_upgrade:
+	docker-compose exec users python manage.py db migrate 
+	docker-compose exec users python manage.py db upgrade 
+
 db_change:
 	docker-compose exec users python manage.py recreate_db 
 
