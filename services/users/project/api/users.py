@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, jsonify
+from flask import Blueprint, request, render_template
 from flask_restful import Resource, Api
 from project import db
 from project.api.models import User
@@ -7,7 +7,6 @@ from sqlalchemy import exc
 
 users_blueprint = Blueprint("users", __name__, template_folder="./templates")
 api = Api(users_blueprint)
-
 
 
 @users_blueprint.route("/", methods=["GET", "POST"])
@@ -35,7 +34,7 @@ class UsersList(Resource):
             return response_object, 400
         username = post_data.get("username")
         email = post_data.get("email")
-        password =  post_data.get("password")
+        password = post_data.get("password")
         try:
             user = User.query.filter_by(email=email).first()
             if not user:
