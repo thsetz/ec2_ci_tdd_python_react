@@ -1,12 +1,17 @@
 import os
 
-from flask import Flask 
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_debugtoolbar import DebugToolbarExtension  
+from flask_debugtoolbar import DebugToolbarExtension
+from flask_cors import CORS
+
 
 # instantiate the db
 db = SQLAlchemy()
 toolbar = DebugToolbarExtension()
+# XXX Currently allows cross site origin rewquests from anywhere ==> Security
+cors = CORS()
+
 
 # new
 def create_app(script_info=None):
