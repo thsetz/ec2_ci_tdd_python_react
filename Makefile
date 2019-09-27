@@ -1,9 +1,17 @@
 SHELL=/bin/bash
+export PATH_TO=`pwd`
+alias tda='cd ${PATH_TO}'
+alias tdu='cd /testdriven-app/services/users'
+alias tdp='cd /Users/setzt/ci_learn/testdriven-app/services/users/project'
+alias tdt='cd /Users/setzt/ci_learn/testdriven-app/services/users/project/tests'
 
+alias dc='docker-compose'
+alias dm='docker-machine
 
 #Docker  Auf die lokale Instanz setzen: eval $(docker-machine env -u)
-build:
-	 docker-compose up -d --build 
+
+build_local:
+	 export REACT_APP_USERS_SERVICE_URL=http://localhost && eval $(docker-machine env -u) && docker-compose up -d --build 
 
 start:
 	docker-compose up -d
