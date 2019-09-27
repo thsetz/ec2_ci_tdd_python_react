@@ -52,6 +52,9 @@ html:
 cov:
 	 docker-compose exec users python manage.py cov
 
+vjstest:
+	cd services/client && npm test --  --verbose
+
 jstest:
 	cd services/client && npm test
 	cd services/client && react-scripts test --coverage

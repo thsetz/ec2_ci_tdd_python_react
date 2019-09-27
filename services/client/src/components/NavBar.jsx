@@ -14,7 +14,7 @@ const NavBar = (props) => (
             console.log("clicked")
             let toggle = document.querySelector(".nav-toggle");
             let menu = document.querySelector(".navbar-menu");
-            toggle.classList.toggle("is-active"); toggle.classList.toggle("is-active"); 
+            toggle.classList.toggle("is-active"); menu.classList.toggle("is-active"); 
           }}>
           <span></span>
           <span></span>
@@ -22,15 +22,23 @@ const NavBar = (props) => (
         </span>
       </div>
       <div className="navbar-menu">
-        <div className="navbar-start">
-          <Link to="/" className="navbar-item">Home</Link>
-          <Link to="/about" className="navbar-item">About</Link>
-          <Link to="/status" className="navbar-item">User Status</Link>
-        </div>
-        <div className="navbar-end">
-          <Link to="/register" className="navbar-item">Register</Link>
-          <Link to="/login" className="navbar-item">Log In</Link>
-          <Link to="/logout" className="navbar-item">Log Out</Link>
+           <div className="navbar-start">
+                <Link to="/" className="navbar-item">Home</Link>
+                <Link to="/about" className="navbar-item">About</Link>
+                {props.isAuthenticated &&
+                  <Link to="/status" className="navbar-item">User Status</Link>
+                }
+              </div>
+              <div className="navbar-end">
+                {!props.isAuthenticated &&
+                  <Link to="/register" className="navbar-item">Register</Link>
+                }
+                {!props.isAuthenticated &&
+                  <Link to="/login" className="navbar-item">Log In</Link>
+                }
+                {props.isAuthenticated &&
+                  <Link to="/logout" className="navbar-item">Log Out</Link>
+                }
         </div>
       </div>
     </section>

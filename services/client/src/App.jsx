@@ -3,12 +3,13 @@ import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
 
 
-import About     from './components/About';
-import UsersList from './components/UsersList';
-import AddUser   from './components/AddUser';
-import NavBar    from './components/NavBar';
-import Form      from './components/Form';
-import Logout    from './components/Logout';
+import About      from './components/About';
+import UsersList  from './components/UsersList';
+import AddUser    from './components/AddUser';
+import NavBar     from './components/NavBar';
+import Form       from './components/Form';
+import Logout     from './components/Logout';
+import UserStatus from './components/UserStatus';
 
 class App extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class App extends Component {
           },
         isAuthenticated: false,
     };
-    console.log("constructor");
+    //console.log("constructor");
     this.addUser              = this.addUser.bind(this); 
     this.handleChange         = this.handleChange.bind(this);
     this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
@@ -109,7 +110,8 @@ class App extends Component {
   render() {
     return (
       <div>
-      <NavBar title={this.state.title} />
+      <NavBar title={this.state.title}
+              isAuthenticated={this.state.isAuthenticated}   />
       <section className="section">
         <div className="container">
           <div className="columns">
@@ -154,7 +156,12 @@ class App extends Component {
                       isAuthenticated={this.state.isAuthenticated}
                     />
                   )} />
-                <Route exact path='/about' component={About}/>
+                <Route exact path='/about'  component={About}/>
+                <Route exact path='/status' render={() => (
+                    <UserStatus
+                      isAuthenticated={this.state.isAuthenticated}
+                    />
+                  )} />
               </Switch>
             </div>
           </div>
