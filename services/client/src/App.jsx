@@ -4,8 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 
 import About      from './components/About';
-import UsersList  from './components/UsersList';
-import AddUser    from './components/AddUser';
+import UserList   from './components/UserList';
 import NavBar     from './components/NavBar';
 import Form       from './components/Form';
 import Logout     from './components/Logout';
@@ -119,18 +118,7 @@ class App extends Component {
               <br/>
               <Switch>
                 <Route exact path='/' render={() => (
-                  <div>
-                    <h1 className="title is-1">All Users</h1>
-                    <hr/><br/>
-                    <AddUser
-                      username={this.state.username}
-                      email={this.state.email}
-                      addUser={this.addUser}
-                      handleChange={this.handleChange}
-                    />
-                    <br/><br/>
-                    <UsersList users={this.state.users}/>
-                  </div>
+                    <UserList users={this.state.users}/>
                 )} />
                 <Route exact path='/register' render={() => (
                     <Form

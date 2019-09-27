@@ -57,7 +57,10 @@ vjstest:
 
 jstest:
 	cd services/client && npm test
-	cd services/client && react-scripts test --coverage
+	cd services/client && react-scripts test --coverage 
+	#cd services/client && react-scripts test --coverage # -u
+    # Um über den Container zu testen
+    # docker-compose exec client npm test -- --verbose
 
 djstest:
 	docker-compose exec client npm test
