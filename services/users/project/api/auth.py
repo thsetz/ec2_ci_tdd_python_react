@@ -83,6 +83,9 @@ def logout_user(resp):
 @authenticate
 def get_user_status(resp):
     user = User.query.filter_by(id=resp).first()
-    response_object = {"status": "success", "message": "success", "data": user.to_json()}
+    response_object = {
+        "status": "success",
+        "message": "success",
+        "data": user.to_json(),
+    }
     return jsonify(response_object), 200
-    
