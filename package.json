@@ -2,6 +2,7 @@
   "name": "test-driven-io",
   "video": true,
   "devDependencies": {
-    "cypress": "^3.2.0"
+    "cypress": "^3.2.0",
+    "randomstring": "^1.1.5"
   }
 }
