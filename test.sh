@@ -23,7 +23,7 @@ server() {
 # run client-side tests
 client() {
   docker-compose up -d --build
-  docker-compose exec client npm test -- --coverage
+  export CI=True && docker-compose exec client npm test -- --coverage
   inspect $? client
   docker-compose down
 }
@@ -44,7 +44,7 @@ all() {
   inspect $? users
   docker-compose exec users flake8 project
   inspect $? users-lint
-  docker-compose exec client npm test -- --coverage
+  export CI=true && docker-compose exec client npm test -- --coverage
   inspect $? client
   docker-compose down
   e2e
