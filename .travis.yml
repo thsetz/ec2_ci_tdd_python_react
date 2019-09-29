@@ -29,7 +29,7 @@ before_script:
   - npm install
 
 script:
-  - bash test.sh stage
+  - bash test.sh  ${TRAVIS_BRANCH}
 
 # new
 after_success:
