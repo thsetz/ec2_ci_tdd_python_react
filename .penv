@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -x
+
+export SECRET_KEY=0ccd512f8c3493797a23557c32db38e7d51ed74f14fa7580
+IP=`dm ip testdriven-prod`
+export REACT_APP_USERS_SERVICE_URL=http://${IP}
+
+set +x
+

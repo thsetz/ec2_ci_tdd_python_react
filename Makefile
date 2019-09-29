@@ -8,10 +8,16 @@ alias tdt='cd /Users/setzt/ci_learn/testdriven-app/services/users/project/tests'
 alias dc='docker-compose'
 alias dm='docker-machine
 
+DOCKER_MACHINE_IP := $(shell docker-machine ip testdriven-prod)
+
 #Docker  Auf die lokale Instanz setzen: eval $(docker-machine env -u)
 
 build_local:
 	 export REACT_APP_USERS_SERVICE_URL=http://localhost && eval $(docker-machine env -u) && docker-compose up -d --build 
+	 #export REACT_APP_USERS_SERVICE_URL=http://localhost && eval $(docker-machine env -u) && docker-compose up  --build 
+
+update_swagger:
+	python services/swagger/update-spec.py http://$(DOCKER_MACHINE_IP)
 
 start:
 	docker-compose up -d
