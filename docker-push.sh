@@ -2,7 +2,7 @@
 
 set -x
 set -e
-
+echo "This may work"
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
   if [[ "$TRAVIS_BRANCH" == "staging" ]]; then
