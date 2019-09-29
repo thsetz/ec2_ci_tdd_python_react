@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 
 env=$1
 fails=""
