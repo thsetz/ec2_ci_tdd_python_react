@@ -22,9 +22,6 @@ then
     eval $(aws ecr get-login --region eu-central-1  --no-include-email)
     export TAG=$TRAVIS_BRANCH
     export REPO=$AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com
-    echo "========================================================="
-    echo "$REPO"
-    echo "========================================================="
   fi
 
   if [ "$TRAVIS_BRANCH" == "staging" ] || \
