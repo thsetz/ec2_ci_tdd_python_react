@@ -49,3 +49,8 @@ fi
 
 # testdriven-staging-alb-846600664.eu-central-1.elb.amazonaws.com
 # container_name = 928141648496.dkr.ecr.eu-central-1.amazonaws.com/test-driven-swagger:staging
+
+#928141648496.dkr.ecr.eu-central-1.amazonaws.com/test-driven-client
+#928141648496.dkr.ecr.eu-central-1.amazonaws.com/test-driven-users
+#928141648496.dkr.ecr.eu-central-1.amazonaws.com/test-driven-users_db
+
