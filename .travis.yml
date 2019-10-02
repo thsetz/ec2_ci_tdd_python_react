@@ -30,11 +30,10 @@ before_script:
 
 script:
   - bash test.sh  ${TRAVIS_BRANCH}
-  - bash ./docker-deploy-stage.sh
 
-# new
 after_success:
   - bash ./docker-push.sh
+  - bash ./docker-deploy-stage.sh
 
 
 
