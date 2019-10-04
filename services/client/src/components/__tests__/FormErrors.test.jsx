@@ -16,7 +16,6 @@ const loginFormProps = {
   formRules: loginFormRules,
 }
 
-// ToDo: Try re-factoring this into a for loop, like we did with the form component tests.
 test('FormErrors (with register form) renders properly', () => {
   const wrapper = shallow(<FormErrors {...registerFormProps} />);
   const ul = wrapper.find('ul');

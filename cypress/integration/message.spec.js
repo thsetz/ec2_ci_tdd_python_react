@@ -35,7 +35,7 @@ describe('Message', () => {
     // assert correct message is flashed
     cy
       .get('.notification.is-success').should('not.be.visible')
-      .get('.notification.is-danger').contains('User/password combination  does not exist.');
+      .get('.notification.is-danger').contains('User does not exist.');
 
     // log a user in
     cy
