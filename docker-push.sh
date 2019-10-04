@@ -1,8 +1,8 @@
 #!/bin/sh
 
--set -x
--set -e
--echo "This may work"
+set -x
+set -e
+echo "This may work"
 
 #export AWS_RDS_URI="postgres://postgres:postgres@database-2.cbgpys1o5cxt.eu-central-1.rds.amazonaws.com:5432/users_prod"
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
