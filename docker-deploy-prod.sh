@@ -70,7 +70,7 @@ then
       template="ecs_exercises_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
       task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_EXERCISES_URI)
-      echo "$task_def"
+      echo "$task_def with AWS_RDS_EXERCISES_URI"
       register_definition
       update_service
 
