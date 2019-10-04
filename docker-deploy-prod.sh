@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 set -e
 
+=======
+>>>>>>> production
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
 
@@ -64,6 +67,7 @@ then
       register_definition
       update_service
 
+<<<<<<< HEAD
       # exercises
       service="testdriven-exercises-prod-service"
       template="ecs_exercises_prod_taskdefinition.json"
@@ -73,6 +77,8 @@ then
       register_definition
       update_service
 
+=======
+>>>>>>> production
     }
 
     configure_aws_cli
