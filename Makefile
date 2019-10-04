@@ -4,7 +4,7 @@ alias tda='cd ${PATH_TO}'
 alias tdu='cd /testdriven-app/services/users'
 alias tdp='cd /Users/setzt/ci_learn/testdriven-app/services/users/project'
 alias tdt='cd /Users/setzt/ci_learn/testdriven-app/services/users/project/tests'
-
+# just a change
 alias dc='docker-compose'
 alias dm='docker-machine
 
