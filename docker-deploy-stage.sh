@@ -1,4 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
+set -e
+=======
+>>>>>>> production
 
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
@@ -62,6 +66,18 @@ then
       register_definition
       update_service
 
+<<<<<<< HEAD
+      # exercises
+      service="testdriven-exercises-stage-service"
+      template="ecs_exercises_stage_taskdefinition.json"
+      task_template=$(cat "ecs/$template")
+      task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_ACCOUNT_ID)
+      echo "$task_def"
+      register_definition
+      update_service
+
+=======
+>>>>>>> production
     }
 
     configure_aws_cli

@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
-import UserList from './components/UserList';
+import UsersList from './components/UsersList';
 import About from './components/About';
 import NavBar from './components/NavBar';
 import Form from './components/forms/Form';
 import Logout from './components/Logout';
-import Message from './components/Message';
 import UserStatus from './components/UserStatus';
+import Message from './components/Message';
+import Footer from './components/Footer';
+import Exercises from './components/Exercises';
 
 
 class App extends Component {
@@ -49,21 +51,21 @@ class App extends Component {
     this.getUsers();
     this.createMessage('Welcome!', 'success');
   };
-  removeMessage() {
-      this.setState({
-        messageName: null,
-        messageType: null
-      });
-};
   createMessage(name='Sanity Check', type='success') {
-      this.setState({
-        messageName: name,
-        messageType: type
-      });
-      setTimeout(() => {
-        this.removeMessage();
-      }, 3000);
-    }; 
+    this.setState({
+      messageName: name,
+      messageType: type
+    });
+    setTimeout(() => {
+      this.removeMessage();
+    }, 3000);
+  };
+  removeMessage() {
+    this.setState({
+      messageName: null,
+      messageType: null
+    });
+  };
   render() {
     return (
       <div>
@@ -74,18 +76,23 @@ class App extends Component {
         <section className="section">
           <div className="container">
             {this.state.messageName && this.state.messageType &&
-                <Message
-                  messageName={this.state.messageName}
-                  messageType={this.state.messageType}
-                  removeMessage={this.removeMessage}
-                />
+              <Message
+                messageName={this.state.messageName}
+                messageType={this.state.messageType}
+                removeMessage={this.removeMessage}
+              />
             }
             <div className="columns">
               <div className="column is-half">
                 <br/>
                 <Switch>
                   <Route exact path='/' render={() => (
-                    <UserList
+                    <Exercises
+                      isAuthenticated={this.state.isAuthenticated}
+                    />
+                  )} />
+                  <Route exact path='/all-users' render={() => (
+                    <UsersList
                       users={this.state.users}
                     />
                   )} />
@@ -122,6 +129,7 @@ class App extends Component {
             </div>
           </div>
         </section>
+        <Footer/>
       </div>
     )
   }
