@@ -21,6 +21,7 @@ then
         echo "Revision: $revision"
       else
         echo "Failed to register task definition"
+        exit 1
         return 1
       fi
     }
@@ -28,6 +29,7 @@ then
     update_service() {
       if [[ $(aws ecs update-service --cluster $cluster --service $service --task-definition $revision | $JQ '.service.taskDefinition') != $revision ]]; then
         echo "Error updating service."
+        exit 1
         return 1
       fi
     }
