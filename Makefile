@@ -4,14 +4,23 @@ alias tda='cd ${PATH_TO}'
 alias tdu='cd /testdriven-app/services/users'
 alias tdp='cd /Users/setzt/ci_learn/testdriven-app/services/users/project'
 alias tdt='cd /Users/setzt/ci_learn/testdriven-app/services/users/project/tests'
-
+# just a change
 alias dc='docker-compose'
 alias dm='docker-machine
+
+
 
 DOCKER_MACHINE_IP := $(shell docker-machine ip testdriven-prod)
 
 #Docker  Auf die lokale Instanz setzen: eval $(docker-machine env -u)
 
+DATABASE_INSTANCE_IDENTIFIER := database-2
+AWS_REGION := eu-central-1
+
+aws_db_version:
+	 aws --region $(AWS_REGION) rds describe-db-instances  --db-instance-identifier $(DATABASE_INSTANCE_IDENTIFIER) --query 'DBInstances[].{DBInstanceStatus:DBInstanceStatus}'
+	 aws --region $(AWS_REGION) rds describe-db-instances  --db-instance-identifier $(DATABASE_INSTANCE_IDENTIFIER)  --query 'DBInstances[].{Address:Endpoint.Address}'
+    
 build_local:
 	 export REACT_APP_USERS_SERVICE_URL=http://localhost && eval $(docker-machine env -u) && docker-compose up -d --build 
 	 #export REACT_APP_USERS_SERVICE_URL=http://localhost && eval $(docker-machine env -u) && docker-compose up  --build 
@@ -30,7 +39,12 @@ shell:
 	 docker-compose exec users flask shell
 
 db_init:
-	docker-compose exec users python manage.py db init
+	docker-compose exec users     python manage.py recreate_db
+	docker-compose exec users     python manage.py seed_db
+	docker-compose exec exercises python manage.py recreate_db
+	docker-compose exec exercises python manage.py seed_db
+	#docker-compose exec users python manage.py db init
+
 
 db_upgrade:
 	docker-compose exec users python manage.py db migrate 

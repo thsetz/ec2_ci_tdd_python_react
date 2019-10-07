@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+
+LOAD_BALANCER_STAGE_DNS_NAME=testdriven-staging-alb-846600664.eu-central-1.elb.amazonaws.com
+LOAD_BALANCER_PROD_DNS_NAME=testdriven-production-alb-1620025013.eu-central-1.elb.amazonaws.com
+LOAD_BALANCER_DNS_NAME=$LOAD_BALANCER_PROD_DNS_NAME
+
+REACT_APP_API_GATEWAY_URL=https://80i8y8yb4k.execute-api.eu-central-1.amazonaws.com/v2/execute
+
+
+
+curl -X POST -H "Content-Type: application/json" -d '{"username":"Feature","email": "xxx@xxx.de","password":"password"}' http://$LOAD_BALANCER_DNS_NAME/auth/register
+
+
+#./node_modules/.bin/cypress run --headed \
+#  --config baseUrl=http://$LOAD_BALANCER_DNS_NAME \
+#  --env REACT_APP_API_GATEWAY_URL=$REACT_APP_API_GATEWAY_URL,LOAD_BALANCER_DNS_NAME=http://$LOAD_BALANCER_DNS_NAME

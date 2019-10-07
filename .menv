@@ -4,7 +4,14 @@ set -x
 export SECRET_KEY='my_secret'
 IP=`dm ip testdriven-prod`
 IP=localhost
+export API_URL=https://80i8y8yb4k.execute-api.eu-central-1.amazonaws.com/v2/execute
+export REACT_APP_API_GATEWAY_URL=${API_URL}
+export REACT_APP_EXERCISES_SERVICE_URL=http://localhost
 export REACT_APP_USERS_SERVICE_URL=http://${IP}
-
+export REACT_APP_USERS_SERVICE_URL=http://localhost
+TRAVIS_BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+if [[ "$TRAVIS_BRANCH" == "staging" ]];    then export LOAD_BALANCER_DNS_NAME=http://testdriven-staging-alb-846600664.eu-central-1.elb.amazonaws.com;     fi
+if [[ "$TRAVIS_BRANCH" == "production" ]]; then export LOAD_BALANCER_DNS_NAME=http://testdriven-production-alb-1620025013.eu-central-1.elb.amazonaws.com; fi
+eval $(docker-machine env -u)
 set +x
 
