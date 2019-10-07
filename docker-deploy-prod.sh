@@ -28,7 +28,7 @@ then
 
     update_service() {
       if [[ $(aws ecs update-service --cluster $cluster --service $service --task-definition $revision | $JQ '.service.taskDefinition') != $revision ]]; then
-        echo "Error updating service."
+        echo "Error updating service. Service ==> $service cluster ==> $cluster revision ==> $revision" 
         exit 1
         return 1
       fi
