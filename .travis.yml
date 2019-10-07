@@ -5,7 +5,6 @@ services:
 
 env:
   DOCKER_COMPOSE_VERSION: 1.23.2
-  # new
   COMMIT: ${TRAVIS_COMMIT::8}
   MAIN_REPO: https://github.com/thsetz/ec2_ci_tdd_python_react.git 
   USERS: test-driven-users
@@ -37,15 +36,12 @@ before_script:
   - npm install
 
 script:
-  - bash test-ci.sh $TRAVIS_BRANCH
+  - bash ./test-ci.sh $TRAVIS_BRANCH
 
 after_success:
-  - bash ./docker-push.sh
-  - bash ./docker-deploy-stage.sh
-<<<<<<< HEAD
-  - bash ./docker-deploy-prod.sh
-=======
-  - bash ./docker-deploy-prod.sh 
+  - bash -x -e ./docker-push.sh
+  - bash -x -e ./docker-deploy-stage.sh
+  - bash -x -e ./docker-deploy-prod.sh 
 
 
 
@@ -57,4 +53,3 @@ after_success:
 #aws ecr create-repository --repository-name test-driven-swagger  --amazonec2-region eu-central-1
 #aws ecr create-repository --repository-name test-driven-users    --amazonec2-region eu-central-1
 #aws ecr create-repository --repository-name test-driven-users-db --amazonec2-region eu-central-1
->>>>>>> production

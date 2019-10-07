@@ -17,13 +17,10 @@ dev() {
   inspect $? users
   docker-compose exec users flake8 project
   inspect $? users-lint
-<<<<<<< HEAD
   docker-compose exec exercises python manage.py test
   inspect $? exercises
   docker-compose exec exercises flake8 project
   inspect $? exercises-lint
-=======
->>>>>>> production
   docker-compose exec client npm test -- --coverage
   inspect $? client
   docker-compose down
@@ -33,14 +30,12 @@ dev() {
 e2e() {
   docker-compose -f docker-compose-stage.yml up -d --build
   docker-compose -f docker-compose-stage.yml exec users python manage.py recreate_db
-<<<<<<< HEAD
   ./node_modules/.bin/cypress run --config baseUrl=http://localhost --env REACT_APP_API_GATEWAY_URL=$REACT_APP_API_GATEWAY_URL,LOAD_BALANCER_DNS_NAME=$LOAD_BALANCER_DNS_NAME
-=======
-  ./node_modules/.bin/cypress run --config baseUrl=http://localhost
->>>>>>> production
   inspect $? e2e
   docker-compose -f docker-compose-$1.yml down
 }
+
+echo "Running on Branch $env"
 
 # run appropriate tests
 if [[ "${env}" == "development" ]]; then

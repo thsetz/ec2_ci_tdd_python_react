@@ -1,14 +1,13 @@
 #!/bin/sh
 
--set -x
--set -e
--echo "This may work"
+set -x
+set -e
+echo "This may work"
 
 #export AWS_RDS_URI="postgres://postgres:postgres@database-2.cbgpys1o5cxt.eu-central-1.rds.amazonaws.com:5432/users_prod"
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
 
-<<<<<<< HEAD
   STAGING_ALB="testdriven-staging-alb-846600664.eu-central-1.elb.amazonaws.com"
   PRODUCTION_ALB="testdriven-production-alb-1620025013.eu-central-1.elb.amazonaws.com"
   if [[ "$TRAVIS_BRANCH" == "staging" ]]; then
@@ -19,14 +18,6 @@ then
     export DOCKER_ENV=prod
     export     REACT_APP_USERS_SERVICE_URL="http://$PRODUCTION_ALB"
     export REACT_APP_EXERCISES_SERVICE_URL="http://$PRODUCTION_ALB"
-=======
-  if [[ "$TRAVIS_BRANCH" == "staging" ]]; then
-    export DOCKER_ENV=stage
-    export REACT_APP_USERS_SERVICE_URL="testdriven-staging-alb-846600664.eu-central-1.elb.amazonaws.com"
-  elif [[ "$TRAVIS_BRANCH" == "production" ]]; then
-    export DOCKER_ENV=prod
-    export REACT_APP_USERS_SERVICE_URL="testdriven-production-alb-1620025013.eu-central-1.elb.amazonaws.com"
->>>>>>> production
     export DATABASE_URL="$AWS_RDS_URI"
     export SECRET_KEY="$PRODUCTION_SECRET_KEY"
   fi
@@ -56,11 +47,7 @@ then
     docker tag $USERS_DB:$COMMIT $REPO/$USERS_DB:$TAG
     docker push $REPO/$USERS_DB:$TAG
     # client
-<<<<<<< HEAD
     docker build $CLIENT_REPO -t $CLIENT:$COMMIT -f Dockerfile-$DOCKER_ENV --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL --build-arg REACT_APP_EXERCISES_SERVICE_URL=$REACT_APP_EXERCISES_SERVICE_URL --build-arg REACT_APP_API_GATEWAY_URL=$REACT_APP_API_GATEWAY_URL
-=======
-    docker build $CLIENT_REPO -t $CLIENT:$COMMIT -f Dockerfile-$DOCKER_ENV --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL
->>>>>>> production
     docker tag $CLIENT:$COMMIT $REPO/$CLIENT:$TAG
     docker push $REPO/$CLIENT:$TAG
     # swagger
