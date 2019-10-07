@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": ">=4.17.13",
     "axios": "^0.18.0",
     "react": "^16.8.4",
     "react-ace": "^6.4.0",

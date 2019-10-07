@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 set -e
 
@@ -12,7 +13,7 @@ then
 
     configure_aws_cli() {
         aws --version
-        aws configure set default.region us-west-1
+        aws configure set default.region eu-central-1
         aws configure set default.output json
         echo "AWS Configured!"
     }

@@ -1,5 +1,10 @@
 #!/bin/sh
+
 set -x
+set -e
+echo "This may work"
+
+#export AWS_RDS_URI="postgres://postgres:postgres@database-2.cbgpys1o5cxt.eu-central-1.rds.amazonaws.com:5432/users_prod"
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
 
@@ -25,7 +30,7 @@ then
     ./awscli-bundle/install -b ~/bin/aws
     export PATH=~/bin:$PATH
     # add AWS_ACCOUNT_ID, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY env vars
-    eval $(aws ecr get-login --region eu-central-1  --no-include-email)
+    eval $(aws ecr get-login --region eu-central-1 --no-include-email)
     export TAG=$TRAVIS_BRANCH
     export REPO=$AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com
   fi

@@ -32,7 +32,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "testdriven-exercises-stage",
+          "awslogs-group": "/testdriven-exercises-stage",
           "awslogs-region": "eu-central-1"
         }
       }
@@ -62,7 +62,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "testdriven-exercises_db-stage",
+          "awslogs-group": "/testdriven-exercises_db-stage",
           "awslogs-region": "eu-central-1"
         }
       }

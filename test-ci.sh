@@ -35,6 +35,8 @@ e2e() {
   docker-compose -f docker-compose-$1.yml down
 }
 
+echo "Running on Branch $env"
+
 # run appropriate tests
 if [[ "${env}" == "development" ]]; then
   echo "Running client and server-side tests!"
