@@ -8,6 +8,8 @@ alias tdt='cd /Users/setzt/ci_learn/testdriven-app/services/users/project/tests'
 alias dc='docker-compose'
 alias dm='docker-machine
 
+
+
 DOCKER_MACHINE_IP := $(shell docker-machine ip testdriven-prod)
 
 #Docker  Auf die lokale Instanz setzen: eval $(docker-machine env -u)
