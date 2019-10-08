@@ -3,7 +3,7 @@
 exports[`NavBar renders a snapshot properly 1`] = `
 <nav
   aria-label="main navigation"
-  className="navbar is-dark"
+  background="tan_paper.gif"
   role="navigation"
 >
   <section

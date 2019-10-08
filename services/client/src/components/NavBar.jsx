@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 const NavBar = (props) => (
   // eslint-disable-next-line
-  <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+   // <nav className="navbar is-dark" role="navigation" aria-label="main navigation" background="tan_paper.gif"> 
+  <nav  role="navigation" aria-label="main navigation" background="tan_paper.gif">
     <section className="container">
       <div className="navbar-brand">
         <strong className="navbar-item">{props.title}</strong>

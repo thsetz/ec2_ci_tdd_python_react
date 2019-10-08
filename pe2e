@@ -9,9 +9,9 @@ REACT_APP_API_GATEWAY_URL=https://80i8y8yb4k.execute-api.eu-central-1.amazonaws.
 
 
 
-curl -X POST -H "Content-Type: application/json" -d '{"username":"Feature","email": "xxx@xxx.de","password":"password"}' http://$LOAD_BALANCER_DNS_NAME/auth/register
+#curl -X POST -H "Content-Type: application/json" -d '{"username":"Feature","email": "xxx@xxx.de","password":"password"}' http://$LOAD_BALANCER_DNS_NAME/auth/register
 
 
-#./node_modules/.bin/cypress run --headed \
-#  --config baseUrl=http://$LOAD_BALANCER_DNS_NAME \
-#  --env REACT_APP_API_GATEWAY_URL=$REACT_APP_API_GATEWAY_URL,LOAD_BALANCER_DNS_NAME=http://$LOAD_BALANCER_DNS_NAME
+./node_modules/.bin/cypress run --headed \
+  --config baseUrl=http://$LOAD_BALANCER_DNS_NAME \
+  --env REACT_APP_API_GATEWAY_URL=$REACT_APP_API_GATEWAY_URL,LOAD_BALANCER_DNS_NAME=http://$LOAD_BALANCER_DNS_NAME
