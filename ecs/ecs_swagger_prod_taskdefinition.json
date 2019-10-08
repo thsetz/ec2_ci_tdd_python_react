@@ -8,7 +8,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "testdriven-swagger-prod",
+          "awslogs-group": "/testdriven-swagger-prod",
           "awslogs-region": "eu-central-1"
         }
       },
