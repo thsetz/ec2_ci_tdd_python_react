@@ -75,7 +75,7 @@ vjstest:
 	cd services/client && npm test --  --verbose
 
 jstest:
-	cd services/client && npm test
+	cd services/client && npm test -u
 	cd services/client && react-scripts test --coverage 
 	#cd services/client && react-scripts test --coverage # -u
     # Um über den Container zu testen
