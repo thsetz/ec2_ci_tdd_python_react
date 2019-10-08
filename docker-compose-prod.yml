@@ -62,7 +62,7 @@ services:
     environment:
       - FLASK_ENV=production
       - APP_SETTINGS=project.config.StagingConfig
-      - DATABASE_URL=postgres://postgres:postgres@exercises-db:5432/exercises_prod
+      - DATABASE_URL=postgres://webapp:admin1234@testdriven-exercises-production.cbgpys1o5cxt.eu-central-1.rds.amazonaws.com:5432/exercises_prod
       - DATABASE_TEST_URL=postgres://postgres:postgres@exercises-db:5432/exercises_test
     depends_on:
       - users
