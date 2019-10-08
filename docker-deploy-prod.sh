@@ -21,7 +21,10 @@ then
       if revision=$(aws ecs register-task-definition --cli-input-json "$task_def" | $JQ '.taskDefinition.taskDefinitionArn'); then
         echo "Revision: $revision"
       else
+        echo"=============================="
         echo "Failed to register task definition"
+        echo"=============================="
+        echo "$task_def with AWS_RDS_EXERCISES_URI"
         exit 1
         return 1
       fi
@@ -29,7 +32,9 @@ then
 
     update_service() {
       if [[ $(aws ecs update-service --cluster $cluster --service $service --task-definition $revision | $JQ '.service.taskDefinition') != $revision ]]; then
+        echo"=============================="
         echo "Error updating service. Service ==> $service cluster ==> $cluster revision ==> $revision" 
+        echo"=============================="
         exit 1
         return 1
       fi
@@ -44,7 +49,7 @@ then
       template="ecs_users_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
       task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_URI $PRODUCTION_SECRET_KEY)
-      echo "$task_def"
+      #echo "$task_def"
       register_definition
       update_service
 
@@ -53,7 +58,7 @@ then
       template="ecs_client_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
       task_def=$(printf "$task_template" $AWS_ACCOUNT_ID)
-      echo "$task_def"
+      #echo "$task_def"
       register_definition
       update_service
 
@@ -62,7 +67,7 @@ then
       template="ecs_swagger_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
       task_def=$(printf "$task_template" $AWS_ACCOUNT_ID)
-      echo "$task_def"
+      #echo "$task_def"
       register_definition
       update_service
 
@@ -71,7 +76,7 @@ then
       template="ecs_exercises_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
       task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_EXERCISES_URI)
-      echo "$task_def with AWS_RDS_EXERCISES_URI"
+      #echo "$task_def with AWS_RDS_EXERCISES_URI"
       register_definition
       update_service
 
