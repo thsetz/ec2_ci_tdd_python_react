@@ -2,6 +2,7 @@ sudo: required
 
 services:
   - docker
+  - xvfb
 
 addons:
   apt:
