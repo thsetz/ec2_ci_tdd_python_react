@@ -15,7 +15,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "testdriven-client-prod",
+          "awslogs-group": "/testdriven-client-prod",
           "awslogs-region": "eu-central-1"
         }
       }

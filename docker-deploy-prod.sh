@@ -1,4 +1,5 @@
 #!/bin/sh
+#TRAVIS_BRANCH="production"
 
 set -e
 if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
