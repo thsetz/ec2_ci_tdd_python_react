@@ -21,9 +21,9 @@ then
       if revision=$(aws ecs register-task-definition --cli-input-json "$task_def" | $JQ '.taskDefinition.taskDefinitionArn'); then
         echo "Revision: $revision"
       else
-        echo"=============================="
+        echo "=============================="
         echo "Failed to register task definition"
-        echo"=============================="
+        echo "=============================="
         echo "$task_def with AWS_RDS_EXERCISES_URI"
         exit 1
         return 1
@@ -32,9 +32,9 @@ then
 
     update_service() {
       if [[ $(aws ecs update-service --cluster $cluster --service $service --task-definition $revision | $JQ '.service.taskDefinition') != $revision ]]; then
-        echo"=============================="
+        echo "=============================="
         echo "Error updating service. Service ==> $service cluster ==> $cluster revision ==> $revision" 
-        echo"=============================="
+        echo "=============================="
         exit 1
         return 1
       fi
@@ -44,14 +44,6 @@ then
 
       cluster="test-driven-production-cluster"
 
-      # users
-      service="testdriven-users-prod-service"
-      template="ecs_users_prod_taskdefinition.json"
-      task_template=$(cat "ecs/$template")
-      task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_URI $PRODUCTION_SECRET_KEY)
-      #echo "$task_def"
-      register_definition
-      update_service
 
       # client
       service="testdriven-client-prod-service"
@@ -80,6 +72,14 @@ then
       register_definition
       update_service
 
+      # users
+      service="testdriven-users-prod-service"
+      template="ecs_users_prod_taskdefinition.json"
+      task_template=$(cat "ecs/$template")
+      task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_URI $PRODUCTION_SECRET_KEY)
+      #echo "$task_def"
+      register_definition
+      update_service
     }
 
     configure_aws_cli
