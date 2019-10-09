@@ -28,7 +28,7 @@ class App extends Component {
     this.createMessage = this.createMessage.bind(this);
     this.removeMessage = this.removeMessage.bind(this);
   };
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (window.localStorage.getItem('authToken')) {
       this.setState({ isAuthenticated: true });
     };

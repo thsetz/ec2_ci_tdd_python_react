@@ -60,7 +60,7 @@ test('Exercises renders a snapshot properly', () => {
 
 test('Exercises will call componentWillMount when mounted', () => {
   const onWillMount = jest.fn();
-  Exercises.prototype.componentWillMount = onWillMount;
+  Exercises.prototype.UNSAFE_componentWillMount = onWillMount;
   const wrapper = mount(<Exercises/>);
   expect(onWillMount).toHaveBeenCalledTimes(1)
 });

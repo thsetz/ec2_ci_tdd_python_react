@@ -26,7 +26,7 @@ class Form extends Component {
     this.clearForm();
     this.validateForm();
   };
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.formType !== nextProps.formType) {
       this.clearForm();
       this.validateForm();
