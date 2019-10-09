@@ -18,7 +18,7 @@ class App extends Component {
     super();
     this.state = {
       users: [],
-      title: 'TestDriven.io',
+      title: 'EDV Beratung Dr.-Ing Setz',
       isAuthenticated: false,
       messageName: null,
       messageType: null,
