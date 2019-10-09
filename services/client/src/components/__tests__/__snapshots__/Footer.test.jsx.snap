@@ -2,24 +2,69 @@
 
 exports[`Footer renders a snapshot properly 1`] = `
 <footer
-  className="footer"
+  background="tan_paper.gif"
 >
   <div
     className="container"
   >
-    <small
-      className="has-text-grey"
-    >
-      <span>
-        Copyright 2019 
-        <a
-          href="http://testdriven.io"
-        >
-          TestDriven.io
-        </a>
-        .
-      </span>
-    </small>
+    <table>
+      <thead>
+        <tr>
+          <td>
+             
+            <img
+              alt="footerlogo_left"
+              src="logo_transl.gif"
+              style={
+                Object {
+                  "float": "left",
+                  "width": "3%",
+                }
+              }
+            />
+             
+          </td>
+          <td>
+            <center>
+              <a
+                href="/fix/impressum"
+              >
+                Impressum
+              </a>
+              <a
+                href="/fix/datenschutz"
+              >
+                Datenschutz
+              </a>
+              <br />
+              <span>
+                Copyright 1998 - 2019 
+                <a
+                  href="http://setz.de"
+                >
+                  Edv Beratung Dr. Setz
+                </a>
+                .
+              </span>
+            </center>
+          </td>
+          <td>
+             
+            <img
+              alt="footerlogo_right"
+              src="logo_transr.gif"
+              style={
+                Object {
+                  "float": "right",
+                  "width": "5%",
+                }
+              }
+            />
+             
+          </td>
+        </tr>
+      </thead>
+    </table>
   </div>
 </footer>
 `;
