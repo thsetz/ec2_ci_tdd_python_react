@@ -38,7 +38,6 @@ before_script:
   - export REACT_APP_API_GATEWAY_URL=https://80i8y8yb4k.execute-api.eu-central-1.amazonaws.com/v2/execute
   - if [[ "$TRAVIS_BRANCH" == "staging" ]];    then export LOAD_BALANCER_DNS_NAME=http://testdriven-staging-alb-846600664.eu-central-1.elb.amazonaws.com;     fi
   - if [[ "$TRAVIS_BRANCH" == "production" ]]; then export LOAD_BALANCER_DNS_NAME=http://testdriven-production-alb-1620025013.eu-central-1.elb.amazonaws.com; fi
-  - travis cache --delete
   - npm install
 
 script:
