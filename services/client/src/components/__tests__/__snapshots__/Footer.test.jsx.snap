@@ -1,70 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders a snapshot properly 1`] = `
-<footer
-  background="tan_paper.gif"
+<section
+  className="section "
 >
   <div
     className="container"
   >
-    <table>
-      <thead>
-        <tr>
-          <td>
+    <div
+      className="columns"
+    >
+      <div
+        className="column"
+      >
+        <img
+          alt="logol-img"
+          className="company_logo_left is-hidden-mobile"
+          src="logo_transl.gif"
+        />
+      </div>
+      <div
+        className="column is-four-fifths"
+      >
+        <center>
+          <p>
+            <span
+              className="company_font_side"
+            >
+              Copyright EDV-Beratung Dr-Setz 1998-2019
+            </span>
              
-            <img
-              alt="footerlogo_left"
-              src="logo_transl.gif"
-              style={
-                Object {
-                  "float": "left",
-                  "width": "3%",
-                }
-              }
-            />
-             
-          </td>
-          <td>
-            <center>
-              <a
-                href="/fix/impressum"
-              >
-                Impressum
-              </a>
-              <a
-                href="/fix/datenschutz"
-              >
-                Datenschutz
-              </a>
-              <br />
-              <span>
-                Copyright 1998 - 2019 
-                <a
-                  href="http://setz.de"
-                >
-                  Edv Beratung Dr. Setz
-                </a>
-                .
-              </span>
-            </center>
-          </td>
-          <td>
-             
-            <img
-              alt="footerlogo_right"
-              src="logo_transr.gif"
-              style={
-                Object {
-                  "float": "right",
-                  "width": "5%",
-                }
-              }
-            />
-             
-          </td>
-        </tr>
-      </thead>
-    </table>
+          </p>
+        </center>
+      </div>
+      <div
+        className="column"
+      >
+        <img
+          alt="logor-img"
+          className="company_logo_right is-hidden-mobile"
+          src="logo_transr.gif"
+        />
+      </div>
+    </div>
   </div>
-</footer>
+</section>
 `;

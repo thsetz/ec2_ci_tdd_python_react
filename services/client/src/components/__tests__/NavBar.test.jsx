@@ -5,13 +5,14 @@ import { MemoryRouter as Router } from 'react-router-dom';
 
 import NavBar from '../NavBar';
 
-const title = 'Hello, World!';
+const title = "EDV Beratung Dr.-Ing Setz" 
 
 test('NavBar renders properly', () => {
   const wrapper = shallow(<NavBar title={title}/>);
-  const element = wrapper.find('strong');
+  const element = wrapper.find('p');
   expect(element.length).toBe(1);
-  expect(element.get(0).props.children).toBe(title);
+  console.log(element.get(0).props.children[0][0])
+  expect(element.get(0).props.children[0]).toBe(title);
 });
 
 test('NavBar renders a snapshot properly', () => {

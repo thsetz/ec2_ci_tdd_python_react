@@ -1,0 +1,82 @@
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Aiipp-link {
+  xcolor: #09d3ac;
+}
+
+h1,h2,h3,h4,h5 {
+    font-weight: bold;
+}
+
+code, pre {
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    background: inherit;
+    color: #666;
+    font-size: 11px;
+}
+
+pre.literal-block {
+    margin: 10px;
+    background: #eee;
+    padding: 6px 8px;
+}
+
+code strong {
+    color: #930;
+}
+
+
+.has-bg-img { background: url('/tan_paper.gif');
+              background-size:cover; 
+ }
+
+.hero-bg {
+  @extend .hero ;
+  background-image: url('/tan_paper.gif');
+  z-index: -2; 
+ } 
+
+
+.has-image-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* background images */
+img.bg {
+                         z-index: 1;  
+                        /* min-width: 1024px; */
+                        /* Set up proportionate scaling */
+                         width: 100%;
+                        height: auto;
+                        filter:alpha(opacity=30);
+                        opacity: .3; 
+
+                        /* position: fixed; // wenn nicht mitgescrollt wird*/
+
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        clear:both;
+}
+
