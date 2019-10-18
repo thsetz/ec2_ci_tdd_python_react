@@ -3,23 +3,24 @@ import React from 'react';
 //import './Footer.css';
 
 const Footer = (props) => (
-  <footer  background="tan_paper.gif">
-    <div className="container" >
-    <table>
-       <thead>
-       <tr><td> <img src ="logo_transl.gif" style={{float: 'left', width: '3%'}} alt="footerlogo_left" /> </td> 
-        <td>
-          <center>
-            <a href="/fix/impressum">Impressum</a>
-            <a href="/fix/datenschutz">Datenschutz</a><br/>
-            <span>Copyright 1998 - 2019 <a href="http://setz.de">Edv Beratung Dr. Setz</a>.</span>
-          </center>
-       </td>
-       <td> <img src ="logo_transr.gif" style={{float:'right', width: '5%'}} alt="footerlogo_right" /> </td></tr>
-       </thead>
-    </table>
-    </div>
-  </footer>
+    <section className="section ">
+        <div className="container">
+            <div className="columns">
+                <div className="column">
+                    <img className="company_logo_left is-hidden-mobile" src="logo_transl.gif"  alt="logol-img"/>
+                </div>
+                <div className="column is-four-fifths">
+                    <center> 
+                        <p><span className="company_font_side" >Copyright EDV-Beratung Dr-Setz 1998-2019</span> </p> 
+                    </center>
+                </div>
+                <div className="column">
+                    <img className="company_logo_right is-hidden-mobile"  src="logo_transr.gif"  alt="logor-img"/>
+                </div>
+            </div>
+        </div>
+    </section> 
+
 )
 
 export default Footer;
