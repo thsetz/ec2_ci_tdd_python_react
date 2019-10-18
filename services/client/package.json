@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lodash": ">=4.17.13",
     "axios": "^0.18.0",
+    "bulma": "^0.7.5",
+    "bulmaswatch": "^0.7.5",
+    "lodash": ">=4.17.13",
+    "node-sass": "^4.12.0",
     "react": "^16.8.4",
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.4",
@@ -15,6 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "testci": "CI=true react-scripts test",
+    "freshtall": "npm cache clean --force && rm -rf node_modules && rm -f package-lock.json && npm install",
     "test": "react-scripts test -u",
     "eject": "react-scripts eject"
   },

@@ -11,6 +11,9 @@ alias dm='docker-machine
 
 DOCKER_MACHINE_IP := $(shell docker-machine ip testdriven-prod)
 
+LOAD_BALANCER_DNS_NAME    := localhost
+REACT_APP_API_GATEWAY_URL := localhost
+
 #Docker  Auf die lokale Instanz setzen: eval $(docker-machine env -u)
 
 DATABASE_INSTANCE_IDENTIFIER := database-2
@@ -27,11 +30,16 @@ build_local:
 update_swagger:
 	python services/swagger/update-spec.py http://$(DOCKER_MACHINE_IP)
 
+# Clean all local (line 1) containers and (line 2) images : https://stackoverflow.com/questions/44785585/how-to-delete-all-docker-local-docker-images
+dockerclean:
+	docker rm -vf $(docker ps -a -q)
+	docker rmi -f $(docker images -a -q)
+
 start:
 	docker-compose up -d
 
 log:
-	docker-compose logs -f
+	eval $(docker-machine env -u) &&  docker-compose logs -f
 
 
 shell:
@@ -80,6 +88,8 @@ jstest:
 	#cd services/client && react-scripts test --coverage # -u
     # Um über den Container zu testen
     # docker-compose exec client npm test -- --verbose
+	./node_modules/.bin/cypress run --headed  --config baseUrl=http://$(LOAD_BALANCER_DNS_NAME)  --env REACT_APP_API_GATEWAY_URL=$(REACT_APP_API_GATEWAY_URL),LOAD_BALANCER_DNS_NAME=http://$(LOAD_BALANCER_DNS_NAME)
+
 
 djstest:
 	docker-compose exec client npm test
