@@ -3,85 +3,123 @@
 exports[`NavBar renders a snapshot properly 1`] = `
 <nav
   aria-label="main navigation"
-  background="tan_paper.gif"
   role="navigation"
 >
   <section
-    className="container"
+    className="container is-paddingless"
   >
     <div
-      className="navbar-brand"
-    >
-      <strong
-        className="navbar-item"
-      >
-        Hello, World!
-      </strong>
-      <span
-        className="nav-toggle navbar-burger"
-        onClick={[Function]}
-      >
-        <span />
-        <span />
-        <span />
-      </span>
-    </div>
-    <div
-      className="navbar-menu"
+      className="columns"
     >
       <div
-        className="navbar-start"
+        className="column"
       >
-        <a
-          className="navbar-item"
-          href="/"
-          onClick={[Function]}
-        >
-          Home
-        </a>
-        <a
-          className="navbar-item"
-          href="/about"
-          onClick={[Function]}
-        >
-          About
-        </a>
-        <a
-          className="navbar-item"
-          href="/all-users"
-          onClick={[Function]}
-        >
-          Users
-        </a>
-        <a
-          className="navbar-item"
-          href="/swagger"
-        >
-          Swagger
-        </a>
+        <img
+          alt="logo_upper_left"
+          className="company_logo_left is-hidden-mobile"
+          src="logo_transl.gif"
+        />
       </div>
       <div
-        className="navbar-end"
+        className="column is-four-fifths navbar-brand"
       >
-        <div
-          className="navbar-item"
+        <center>
+          <p
+            className="company_font_header"
+          >
+            EDV Beratung Dr.-Ing Setz
+            <br />
+             Ihr Partner am Netz
+          </p>
+           
+        </center>
+        <span
+          className="nav-toggle navbar-burger"
+          onClick={[Function]}
         >
-          <a
-            className="button is-primary"
-            href="/register"
-            onClick={[Function]}
+          <span />
+          <span />
+          <span />
+        </span>
+        <div
+          className="navbar-menu"
+        >
+          <div
+            className="navbar-start"
           >
-            Register
-          </a>
-           
-          <a
-            className="button is-link"
-            href="/login"
-            onClick={[Function]}
+            <a
+              className="navbar-item"
+              href="/"
+              onClick={[Function]}
+            >
+              Home
+            </a>
+            <a
+              className="navbar-item"
+              href="/about"
+              onClick={[Function]}
+            >
+              Über uns
+            </a>
+            <a
+              className="navbar-item"
+              href="/all-users"
+              onClick={[Function]}
+            >
+              Users
+            </a>
+            <a
+              className="navbar-item"
+              href="/impressum"
+            >
+              Impressum
+            </a>
+            <a
+              className="navbar-item"
+              href="/datenschutz"
+            >
+              Datenschutz
+            </a>
+            <a
+              className="navbar-item"
+              href="/swagger"
+            >
+              Swagger
+            </a>
+          </div>
+          <div
+            className="navbar-end"
           >
-            Log In
-          </a>
+            <div
+              className="navbar-item"
+            >
+              <a
+                className="button is-primary"
+                href="/register"
+                onClick={[Function]}
+              >
+                Register
+              </a>
+               
+              <a
+                className="button is-link"
+                href="/login"
+                onClick={[Function]}
+              >
+                Log In
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
+      <div
+        className="column"
+      >
+        <img
+          alt="logo_upper_right"
+          className="company_logo_right is-hidden-mobile"
+          src="logo_transr.gif"
+        />
       </div>
     </div>
   </section>
