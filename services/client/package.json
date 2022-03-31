@@ -6,7 +6,7 @@
     "axios": "^0.18.0",
     "bulma": "^0.7.5",
     "bulmaswatch": "^0.7.5",
-    "lodash": ">=4.17.13",
+    "lodash": ">=4.17.21",
     "node-sass": "^4.12.0",
     "react": "^16.8.4",
     "react-ace": "^6.4.0",
